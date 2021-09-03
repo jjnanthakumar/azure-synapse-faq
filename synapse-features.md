@@ -289,3 +289,112 @@ We currently don't plan to provide UI widgets as a way of interacting with those
 **A**: This will be located in the Monitoring Hub of Synapse Studio.
 
 ---
+
+### **Q**: _Can we migrate the data in one go?_
+
+**A**: Recommended solution is to move data from source to data lake or blob using copy statement and then push it into Synapse SQL database.
+
+---
+
+### **Q**: _Is there a typical data set size at which azure synapse becomes relevant and appropriate?_
+
+**A**: It depends on the business requirements whether you need a warehouse in which data can grow or you need a fast data load ingestion like spark. You should also think of integrations also because synapse is a unified platform.
+
+---
+
+### **Q**: _When I saw Power BI Integration in synapse the version is very old, is it automatically synced with latest version?_
+
+**A**: Power BI service is always up to date.
+
+---
+
+### **Q**: _Can I link more than one Power BI workspace to a single Azure Synapse Workspace?_
+
+**A**: Currently, you can only link a single Power BI workspace to an Azure Synapse Workspace.
+
+---
+
+### **Q**: _Does Azure Synapse workspace Support CI/CD?_
+
+**A**: Yes! All Pipeline artifacts, notebooks, SQL scripts, and Spark job definitions will reside in Github or Azure Repos.
+
+---
+
+### **Q**: _How do I migrate existing pipelines from Azure Data Factory to an Azure Synapse workspace?_
+
+**A**: At this time, you must manually recreate your Azure Data Factory pipelines and related artifacts by exporting the JSON from the original pipeline and importing it into your Synapse workspace.
+
+---
+
+### **Q**: _What is the default deployment of dedicated SQL pools now?_
+
+**A**: By Default, all new dedicated SQL pools will be deployed to a workspace; however, if you need to you can still create a dedicated SQL pool (formerly SQL DW) in a standalone form factor.
+
+---
+
+### **Q**: _Can I 'aquire lease' on a folder using pyspark notebook? If yes, is there any Microsoft spark utilities api for me to help?_
+
+**A**: If concurrency is an issue, might I suggest using a Tumbling Window Trigger?
+
+---
+
+### **Q**: _synapse workspace via mobile phone hotspot_
+
+**A**: While connected using Mobile hotspot, just try to go to Synapse > Networking > Firewall rules and click on Add Client IP button. See if that works.
+
+---
+
+### **Q**: _Azure Synapse: Managed Private Endpoints Deployment_
+
+**A**: Below Rest API allows you to create managed end points programmatically. You can utilize this REST API calls to automate your process. Please refer the [link](https://docs.microsoft.com/en-us/rest/api/synapse/data-plane/managed-private-endpoints/create) for more info.
+
+---
+
+### **Q**: _Copying Data from Blob to Azure Synapse_
+
+**A**: Please refer the [Link](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-copy-data-tool)
+
+---
+
+### **Q**: _Is it possible to share metadata between spark pool and dedicated sql pool?_
+
+**A**: No, currently it can only be shared spark pools and serverless pools.
+
+---
+
+### **Q**: _Is it possible to share metadata between spark pool and dedicated sql pool?_
+
+**A**: No, currently it can only be shared spark pools and serverless pools.
+
+---
+
+### **Q**: _Is it possible to share metadata related to delta format files between spark/sql pool and dedicated sql pool?_
+
+**A**: It is not possible currently and only databases and their contained external and managed tables that uses Parquet Storage format can be shared with workspace SQL engine. Please refer to the [documentation](https://docs.microsoft.com/en-us/azure/synapse-analytics/metadata/overview) for more info.
+
+---
+
+### **Q**: _What does Azure Synapse offer for data security?_
+
+**A**: Azure Synapse offers several solutions for protecting data such as TDE and auditing. For more information, see [reference](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security).
+
+---
+
+### **Q**: _Where can I find out what legal or business standards Azure Synapse is compliant with?_
+
+**A**: Visit the Microsoft Compliance [page](https://www.microsoft.com/trustcenter/compliance/complianceofferings) for various compliance offerings by product such as SOC and ISO.
+
+---
+
+### **Q**: _Can I connect Power BI?_
+
+**A**: Yes! Though Power BI supports direct query with Azure Synapse, it's not intended for a large number of users or real-time data. To optimize Power BI performance further, consider using Power BI on top of Azure Analysis Services or Analysis Service IaaS.
+
+---
+
+### **Q**: _Does dedicated SQL pool (formerly SQL DW) support REST APIs?_
+
+**A**: Yes. Most REST functionality that can be used with SQL Database is also available with dedicated SQL pool (formerly SQL DW).
+
+---
+
