@@ -19,7 +19,7 @@
 
 ---
 
-### **Q**: _Any suggested wrapper for Data Quality Assessment capability? _
+### **Q**: _Any suggested wrapper for Data Quality Assessment capability?_
 
 **A**: 
 
