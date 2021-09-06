@@ -398,3 +398,177 @@ We currently don't plan to provide UI widgets as a way of interacting with those
 
 ---
 
+### **Q**: _What file formats are supported by PolyBase?_
+
+**A**: Orc, RC, Parquet, and flat delimited text.
+
+---
+
+### **Q**: _What data sources can I connect to using PolyBase?_
+
+**A**: Azure Data Lake Storage and Azure Storage Blobs.
+
+---
+
+### **Q**: _Is computation pushdown possible when connecting to Azure Storage Blobs or ADLS?_
+
+**A**: No, PolyBase only interacts with the storage components.
+
+---
+
+### **Q**: _Can I connect to HDI?_
+
+**A**: HDI can use either ADLS or WASB as the HDFS layer. If you have either as your HDFS layer, you can load that data into a dedicated SQL pool (formerly SQL DW). However, you cannot generate pushdown computation to the HDI instance.
+
+---
+
+### **Q**: _Where is Azure synapse data stored?_
+
+**A**: Azure Synapse uses Azure Data Lake Storage Gen2 as a data warehouse and a consistent data model that incorporates administration, monitoring and metadata management sections.
+
+---
+
+### **Q**: _Is Azure Synapse a database?_
+
+**A**: Simply put, Azure Synapse Analytics is an evolution of Azure SQL Data Warehouse. Azure SQL Data Warehouse was a massively parallel processing (MPP) cloud-based, scale-out, relational database, designed to process and store large volumes of data within the Microsoft Azure cloud platform.
+
+---
+
+### **Q**: _Can Databricks connect to synapse?_
+
+**A**: You can access Azure Synapse from Azure Databricks using the Azure Synapse connector.
+
+---
+
+### **Q**: _Can Databricks connect to synapse?_
+
+**A**: You can access Azure Synapse from Azure Databricks using the Azure Synapse connector.
+
+---
+
+### **Q**: _How is azure synapse billed?_
+
+**A**: once the data warehouse is created, you will be billed hourly for compute and storage. Compute is billed at $883.081/100 DWUs/month, unless the data warehouse is paused. Storage is billed at $23 per TB per month of data stored.
+
+---
+
+### **Q**: _What is the difference between ADF and synapse?_
+
+**A**: ADF has several templates which allow you to create pipelines based on some standard ETL scenarios. Synapse does not have this. Synapse also does not support Snowflake's source/destinations. Finally, a few observations regarding the features behaving differently.
+
+---
+
+### **Q**: _What is azure synapse serverless?_
+
+**A**: The other is serverless SQL pool, where you do not need to provision a server, it auto-scales and you consume the service on a pay-per-query cost model.
+
+---
+
+### **Q**: _What is SQL pool in synapse?_
+
+**A**: SQL Pool is the traditional Data Warehouse. It was formerly known as Azure SQL Data Warehouse before it came under the Synapse Family. It is a Big Data Solution that stores data in a relational table format with columnar storage.
+
+---
+
+### **Q**: _Is Azure synapse SAAS or PaaS?_
+
+**A**: Azure Synapse Analytics is a cloud-based Platform as a Service (PaaS) offering on Azure platform which provides limitless analytics service using either serverless on-demand or provisioned resources—at scale.
+
+---
+
+### **Q**: _Is Azure synapse columnar?_
+
+**A**: Synapse stores data in a columnar format and enables distributed querying capabilities, which is better suited for the performance of OLAP workloads.
+
+---
+
+### **Q**: _What versions of Spark are available?_
+
+**A**: Azure Synapse Apache Spark fully supports Spark 2.4 and currently Spark 3.0 is in preview. Refer [here](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-version-support)
+
+---
+
+### **Q**: _Is there an equivalent of DButils in Azure Synapse Spark?_
+
+**A**: Yes, Azure Synapse Apache Spark provides the mssparkutils library. Refer [here](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/microsoft-spark-utilities)
+
+---
+
+### **Q**: _How do I set session parameters in Apache Spark?_
+
+**A**: To set session parameters, use %%configure magic available. A session restart is required for the parameters to take effect.
+
+---
+
+### **Q**: _How do I set cluster level parameters in a serverless Spark pool?_
+
+**A**: To set cluster level parameters, you can provide a spark.conf file for the Spark pool. This pool will then honor the parameters past in the config file.
+
+---
+
+### **Q**: _Can I run a multi-user Spark Cluster in Azure Synapse Analytics?_
+
+**A**: Azure Synapse provides purpose-built engines for specific use cases. Apache Spark for Synapse is designed as a job service and not a cluster model. Refer [here](https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-faq#can-i-run-a-multi-user-spark-cluster-in-azure-synapse-analytics-)
+
+---
+
+### **Q**: _How do I control dedicated SQL pools, serverless SQL pools, and serverless Spark pools?_
+
+**A**: As a starting point, Azure Synapse works with the built-in cost analysis and cost alerts available at the Azure subscription level. Refer [here](https://docs.microsoft.com/en-us/azure/synapse-analytics/overview-faq#how-do-i-control-dedicated-sql-pools--serverless-sql-pools--and-serverless-spark-pools-)
+
+---
+
+### **Q**: _How do I include, manage, and install libraries?_
+
+**A**: You can install external packages via a requirements.txt file while creating the Spark pool, from the synapse workspace, or from the Azure portal.
+Refer [here](https://docs.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-azure-portal-add-libraries)
+
+---
+
+### **Q**: _What are the functional differences between dedicated SQL pools and serverless pools?_
+
+**A**: Please refer the Reference [Link](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/overview-features).
+
+---
+
+### **Q**: _Will Synapse workspace support folder organization of objects and granularity at GA?_
+
+**A**: Synapse workspaces supports user-defined folders.
+
+---
+
+### **Q**: _Is Synapse Link to Cosmos DB is in GA?_
+
+**A**: Synapse Link for Apache Spark is GA. Synapse Link for serverless SQL pool is in Public Preview.
+
+---
+
+### **Q**: _How do I ensure I know what credential is being used to run a pipeline?_
+
+**A**: Each activity in a Synapse Pipeline is executed using the credential specified inside the linked service.
+
+---
+
+### **Q**: _Are SSIS IRs supported in Synapse Integrate?_
+
+**A**: Not at this time.
+
+---
+
+### **Q**: _What is the difference between Apache Spark for Synapse and Apache Spark?_
+
+**A**: Apache Spark for Synapse is Apache Spark with added support for integrations with other services (AAD, AzureML, etc.) and additional libraries (mssparktuils, Hummingbird) and pre-tuned performance configurations.
+
+---
+
+### **Q**: _Now that Azure Synapse is GA, how do I move my dedicated SQL pools that were previously standalone into Azure Synapse?_
+
+**A**: There is no “move” or “migration.” You can choose to enable new workspace features on your existing pools. If you do, there are no breaking changes, instead you’ll be able to use new features such as Synapse Studio, Spark, and serverless SQL pools.
+
+---
+
+### **Q**: _How do I secure access to my Azure Synapse workspace?_
+
+**A**: With or without a managed virtual network, you can connect to your workspace from public networks. For more information, see Connectivity Settings. Access from public networks can be controlled by enabling the public network access feature or the workspace firewall. Alternatively, you can connect to your workspace using a managed private endpoint and private Link. Synapse workspaces without the Azure Synapse Analytics Managed Virtual Network do not have the ability to connect via managed private endpoints.
+
+---
