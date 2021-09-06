@@ -5,3 +5,5 @@
 [Labs FAQ](./labs.md)
 
 [Unanswered questions](./unanswered.md)
+
+[Purview Features](./purview.md)
